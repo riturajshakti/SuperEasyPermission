@@ -47,12 +47,12 @@ For a list of all permissions, visit [`Google Developers`](https://developer.and
 
 Add required permissions in `Info.plist` file:
 
-```plist
+```xml
 <key>NSCameraUsageDescription</key>
 <string>$(PRODUCT_NAME) camera description.</string>
 ```
 
-In this case, I have added camera permission. Your need be different.
+In this case, I have added camera permission. Your need may be different.
 For a list of all permissions, visit [`Apple Developers`](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW1) site.
 
 ### Step 3

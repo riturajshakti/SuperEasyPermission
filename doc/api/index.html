@@ -84,10 +84,10 @@ You can also open the device's app settings so users can grant a permission.</p>
 <p>For a list of all permissions, visit <a href="https://developer.android.com/reference/android/Manifest.permission#summary"><code>Google Developers</code></a> site.</p>
 <h4 id="ios">iOS</h4>
 <p>Add required permissions in <code>Info.plist</code> file:</p>
-<pre class="language-plist"><code class="language-plist">&lt;key&gt;NSCameraUsageDescription&lt;/key&gt;
+<pre class="language-xml"><code class="language-xml">&lt;key&gt;NSCameraUsageDescription&lt;/key&gt;
 &lt;string&gt;$(PRODUCT_NAME) camera description.&lt;/string&gt;
 </code></pre>
-<p>In this case, I have added camera permission. Your need be different.
+<p>In this case, I have added camera permission. Your need may be different.
 For a list of all permissions, visit <a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW1"><code>Apple Developers</code></a> site.</p>
 <h3 id="step-3">Step 3</h3>
 <p>Import the library in your dart file:</p>

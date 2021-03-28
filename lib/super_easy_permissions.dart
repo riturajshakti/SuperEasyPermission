@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:flutter/services.dart';
@@ -40,7 +39,7 @@ class SuperEasyPermissions {
     return version;
   }
 
-  /// Asks(request) for permission and return true if granted, otherwise returns false
+  /// Asks(request) for permission and return true if granted, otherwise returns false.
   /// If the permission is permanently denied, This will open the settings
   static Future<bool> askPermission(Permissions permission) async {
     int result = await getPermissionResult(permission);
@@ -68,11 +67,7 @@ class SuperEasyPermissions {
     return (await getPermissionResult(permission)) == 1;
   }
 
-  /// returns true if permission is temporary or permanently denied, otherwise returns false
-  /// You can also use:
-  ///     if(!SuperEasyPermissions.isGranted(Permissions.XXXXXXX) {
-  ///       ...
-  ///     }
+  /// returns true if permission is temporary or permanently denied, otherwise returns false.
   static Future<bool> isDenied(Permissions permission) async {
     return (await getPermissionResult(permission)) != 1;
   }
@@ -82,13 +77,14 @@ class SuperEasyPermissions {
     return (await getPermissionResult(permission)) == -1;
   }
 
-  /// Return 1 if permission is granted
-  /// return 0 if denied
+  /// Return 1 if permission is granted,
+  /// return 0 if denied,
   /// return -1 if user set to don't ask again
   static Future<int> getPermissionResult(Permissions permission) async {
     var permissionName = _getEquivalentPermissionName(permission);
     var permissionStatus =
-        (await Permission.getPermissionsStatus([permissionName]))[0].permissionStatus;
+        (await Permission.getPermissionsStatus([permissionName]))[0]
+            .permissionStatus;
     int result;
     if (permissionStatus == PermissionStatus.allow) {
       result = 1;
@@ -106,7 +102,8 @@ class SuperEasyPermissions {
     return result;
   }
 
-  static PermissionName _getEquivalentPermissionName(Permissions permissionName) {
+  static PermissionName _getEquivalentPermissionName(
+      Permissions permissionName) {
     var map = <Permissions, PermissionName>{
       Permissions.Internet: PermissionName.Internet,
       Permissions.Calendar: PermissionName.Calendar,

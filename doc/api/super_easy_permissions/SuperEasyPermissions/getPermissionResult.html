@@ -98,8 +98,8 @@
       
     </section>
     <section class="desc markdown">
-      <p>Return 1 if permission is granted
-return 0 if denied
+      <p>Return 1 if permission is granted,
+return 0 if denied,
 return -1 if user set to don't ask again</p>
     </section>
     
@@ -108,7 +108,8 @@ return -1 if user set to don't ask again</p>
       <pre class="language-dart"><code class="language-dart">static Future&lt;int&gt; getPermissionResult(Permissions permission) async {
   var permissionName = _getEquivalentPermissionName(permission);
   var permissionStatus =
-      (await Permission.getPermissionsStatus([permissionName]))[0].permissionStatus;
+      (await Permission.getPermissionsStatus([permissionName]))[0]
+          .permissionStatus;
   int result;
   if (permissionStatus == PermissionStatus.allow) {
     result = 1;
