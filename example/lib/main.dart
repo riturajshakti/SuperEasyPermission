@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     // Checking if file permission is already granted
-    SuperEasyPermissions.isGranted(Permissions.Storage).then((result) {
+    SuperEasyPermissions.isGranted(Permissions.camera).then((result) {
       if (result) {
         setState(() => _filePermission = 'Granted !');
       }
@@ -41,8 +41,9 @@ class _MyAppState extends State<MyApp> {
               SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () async {
+                  // Checking if file permission is granted
                   bool result =
-                      await SuperEasyPermissions.isGranted(Permissions.Storage);
+                      await SuperEasyPermissions.isGranted(Permissions.camera);
                   if (result) {
                     setState(() => _filePermission = 'Granted !');
                   }
@@ -52,13 +53,26 @@ class _MyAppState extends State<MyApp> {
               SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () async {
+                  // requesting permission
                   bool result = await SuperEasyPermissions.askPermission(
-                      Permissions.Storage);
+                      Permissions.camera);
                   if (result) {
                     setState(() => _filePermission = 'Granted !');
                   }
                 },
                 child: Text('Ask Permission'),
+              ),
+              SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () async {
+                  // Checking if file permission is permanently denied
+                  bool result = await SuperEasyPermissions.isPermanentlyDenied(
+                      Permissions.camera);
+                  if (result) {
+                    setState(() => _filePermission = 'Permanently denied !');
+                  }
+                },
+                child: Text('Check if Permanently Denied'),
               ),
             ],
           ),

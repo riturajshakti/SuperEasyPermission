@@ -107,19 +107,13 @@ return -1 if user set to don't ask again</p>
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">static Future&lt;int&gt; getPermissionResult(Permissions permission) async {
   var permissionName = _getEquivalentPermissionName(permission);
-  var permissionStatus =
-      (await Permission.getPermissionsStatus([permissionName]))[0]
-          .permissionStatus;
+  var permissionStatus = await permissionName.status;
   int result;
-  if (permissionStatus == PermissionStatus.allow) {
+  if (permissionStatus == PermissionStatus.granted) {
     result = 1;
-  } else if (permissionStatus == PermissionStatus.always) {
+  } else if (permissionStatus == PermissionStatus.limited) {
     result = 1;
-  } else if (permissionStatus == PermissionStatus.whenInUse) {
-    result = 1;
-  } else if (permissionStatus == PermissionStatus.deny) {
-    result = 0;
-  } else if (permissionStatus == PermissionStatus.notAgain) {
+  } else if (permissionStatus == PermissionStatus.permanentlyDenied) {
     result = -1;
   } else {
     result = 0;
@@ -138,7 +132,7 @@ return -1 if user set to don't ask again</p>
 <footer>
   <span class="no-break">
     super_easy_permissions
-      0.0.3
+      0.0.4
   </span>
 
 </footer>

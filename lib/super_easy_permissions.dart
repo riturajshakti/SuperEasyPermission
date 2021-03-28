@@ -1,33 +1,77 @@
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:permission/permission.dart';
+import 'package:permission_handler/permission_handler.dart';
 
+/// Permission constants for android and ios
 enum Permissions {
-  // iOS
-  Internet,
-  // both
-  Calendar,
-  // both
-  Camera,
-  // both
-  Contacts,
-  // both
-  Microphone,
-  // both
-  Location,
-  // iOS
-  WhenInUse,
-  // Android
-  Phone,
-  // Android
-  Sensors,
-  // Android
-  SMS,
-  // Android
-  Storage,
-  // Android
-  State,
+  /// Android: Allows an application to access any geographic locations
+  /// persisted in the user's shared collection.
+  accessMediaLocation,
+
+  /// When running on Android Q and above: Activity Recognition When running
+  /// on Android < Q: Nothing iOS: Nothing
+  activityRecognition,
+
+  /// iOS 13 and above: The authorization state of Core Bluetooth manager.
+  /// When running < iOS 13 or Android this is always allowed.
+  bluetooth,
+
+  /// Android: Calendar iOS: Calendar (Events)
+  calendar,
+
+  /// Android: Camera iOS: Photos (Camera Roll and Camera)
+  camera,
+
+  /// Android: Contacts iOS: AddressBook
+  contacts,
+
+  /// Android: Ignore Battery Optimizations
+  ignoreBatteryOptimizations,
+
+  /// Android: Fine and Coarse Location iOS: CoreLocation (Always and WhenInUse)
+  location,
+
+  /// Android: When running on Android < Q: Fine and Coarse Location
+  /// When running on Android Q and above: Background Location Permission iOS: CoreLocation - Always
+  locationAlways,
+
+  /// Android: Fine and Coarse Location iOS: CoreLocation - WhenInUse
+  locationWhenInUse,
+
+  /// Android: None iOS: MPMediaLibrary
+  mediaLibrary,
+
+  /// Android: Microphone iOS: Microphone
+  microphone,
+
+  /// Android: Notification iOS: Notification
+  notification,
+
+  /// Android: Phone iOS: Nothing
+  phone,
+
+  /// Android: Nothing iOS: Photos iOS 14+ read & write access level
+  photos,
+
+  /// Android: Nothing iOS: Photos iOS 14+ read & write access level
+  photosAddOnly,
+
+  /// Android: Nothing iOS: Reminders
+  reminders,
+
+  /// Android: Body Sensors iOS: CoreMotion
+  sensors,
+
+  /// Android: Sms iOS: Nothing
+  sms,
+
+  /// Android: Microphone iOS: Speech
+  speech,
+
+  /// Android: External Storage iOS: Access to folders like Documents
+  ///  or Downloads. Implicitly granted.
+  storage,
 }
 
 class SuperEasyPermissions {
@@ -46,18 +90,16 @@ class SuperEasyPermissions {
     var permissionName = _getEquivalentPermissionName(permission);
     if (result == 0) {
       // Code for deny (false)
-      await Permission.requestPermissions([permissionName]);
-      result = await getPermissionResult(permission);
-      return result == 1;
+      var status = await permissionName.request();
+      return status == PermissionStatus.granted ||
+          status == PermissionStatus.limited;
     } else if (result == -1) {
       // Code for notAgain (false)
-      await Permission.requestPermissions([permissionName]);
-      result = await getPermissionResult(permission);
-      if (result == 1) return true;
-      await Permission.openSettings();
+      await openAppSettings();
       result = await getPermissionResult(permission);
       return result == 1;
     } else {
+      // already granted
       return true;
     }
   }
@@ -82,19 +124,13 @@ class SuperEasyPermissions {
   /// return -1 if user set to don't ask again
   static Future<int> getPermissionResult(Permissions permission) async {
     var permissionName = _getEquivalentPermissionName(permission);
-    var permissionStatus =
-        (await Permission.getPermissionsStatus([permissionName]))[0]
-            .permissionStatus;
+    var permissionStatus = await permissionName.status;
     int result;
-    if (permissionStatus == PermissionStatus.allow) {
+    if (permissionStatus == PermissionStatus.granted) {
       result = 1;
-    } else if (permissionStatus == PermissionStatus.always) {
+    } else if (permissionStatus == PermissionStatus.limited) {
       result = 1;
-    } else if (permissionStatus == PermissionStatus.whenInUse) {
-      result = 1;
-    } else if (permissionStatus == PermissionStatus.deny) {
-      result = 0;
-    } else if (permissionStatus == PermissionStatus.notAgain) {
+    } else if (permissionStatus == PermissionStatus.permanentlyDenied) {
       result = -1;
     } else {
       result = 0;
@@ -102,21 +138,30 @@ class SuperEasyPermissions {
     return result;
   }
 
-  static PermissionName _getEquivalentPermissionName(
-      Permissions permissionName) {
-    var map = <Permissions, PermissionName>{
-      Permissions.Internet: PermissionName.Internet,
-      Permissions.Calendar: PermissionName.Calendar,
-      Permissions.Camera: PermissionName.Camera,
-      Permissions.Contacts: PermissionName.Contacts,
-      Permissions.Microphone: PermissionName.Microphone,
-      Permissions.Location: PermissionName.Location,
-      Permissions.WhenInUse: PermissionName.WhenInUse,
-      Permissions.Phone: PermissionName.Phone,
-      Permissions.Sensors: PermissionName.Sensors,
-      Permissions.SMS: PermissionName.SMS,
-      Permissions.Storage: PermissionName.Storage,
-      Permissions.State: PermissionName.State,
+  static Permission _getEquivalentPermissionName(Permissions permissionName) {
+    var map = <Permissions, Permission>{
+      Permissions.accessMediaLocation: Permission.accessMediaLocation,
+      Permissions.activityRecognition: Permission.activityRecognition,
+      Permissions.bluetooth: Permission.bluetooth,
+      Permissions.calendar: Permission.calendar,
+      Permissions.camera: Permission.camera,
+      Permissions.contacts: Permission.contacts,
+      Permissions.ignoreBatteryOptimizations:
+          Permission.ignoreBatteryOptimizations,
+      Permissions.location: Permission.location,
+      Permissions.locationAlways: Permission.locationAlways,
+      Permissions.locationWhenInUse: Permission.locationWhenInUse,
+      Permissions.mediaLibrary: Permission.mediaLibrary,
+      Permissions.microphone: Permission.microphone,
+      Permissions.notification: Permission.notification,
+      Permissions.phone: Permission.phone,
+      Permissions.photos: Permission.photos,
+      Permissions.photosAddOnly: Permission.photosAddOnly,
+      Permissions.reminders: Permission.reminders,
+      Permissions.sensors: Permission.sensors,
+      Permissions.sms: Permission.sms,
+      Permissions.speech: Permission.speech,
+      Permissions.storage: Permission.storage,
     };
     return map[permissionName];
   }

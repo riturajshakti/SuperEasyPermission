@@ -71,131 +71,249 @@
   <div id="dartdoc-main-content" class="main-content">
       <div><h1><span class="kind-enum">Permissions</span> enum  </h1></div>
 
+    <section class="desc markdown">
+      <p>Permission constants for android and ios</p>
+    </section>
     
 
     <section class="summary offset-anchor" id="constants">
       <h2>Constants</h2>
 
       <dl class="properties">
-        <dt id="Calendar" class="constant">
-          <span class="name ">Calendar</span>
+        <dt id="accessMediaLocation" class="constant">
+          <span class="name ">accessMediaLocation</span>
           <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
                   </dt>
         <dd>
-           
-                  
-  <div>
-            <span class="signature"><code>const Permissions(1)</code></span>
-          </div>
-        </dd>
-        <dt id="Camera" class="constant">
-          <span class="name ">Camera</span>
-          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
-                  </dt>
-        <dd>
-           
-                  
-  <div>
-            <span class="signature"><code>const Permissions(2)</code></span>
-          </div>
-        </dd>
-        <dt id="Contacts" class="constant">
-          <span class="name ">Contacts</span>
-          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
-                  </dt>
-        <dd>
-           
-                  
-  <div>
-            <span class="signature"><code>const Permissions(3)</code></span>
-          </div>
-        </dd>
-        <dt id="Internet" class="constant">
-          <span class="name ">Internet</span>
-          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
-                  </dt>
-        <dd>
-           
+          <p>Android: Allows an application to access any geographic locations
+persisted in the user's shared collection.</p> 
                   
   <div>
             <span class="signature"><code>const Permissions(0)</code></span>
           </div>
         </dd>
-        <dt id="Location" class="constant">
-          <span class="name ">Location</span>
+        <dt id="activityRecognition" class="constant">
+          <span class="name ">activityRecognition</span>
           <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
                   </dt>
         <dd>
-           
+          <p>When running on Android Q and above: Activity Recognition When running
+on Android &lt; Q: Nothing iOS: Nothing</p> 
                   
   <div>
-            <span class="signature"><code>const Permissions(5)</code></span>
+            <span class="signature"><code>const Permissions(1)</code></span>
           </div>
         </dd>
-        <dt id="Microphone" class="constant">
-          <span class="name ">Microphone</span>
+        <dt id="bluetooth" class="constant">
+          <span class="name ">bluetooth</span>
           <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
                   </dt>
         <dd>
-           
+          <p>iOS 13 and above: The authorization state of Core Bluetooth manager.
+When running &lt; iOS 13 or Android this is always allowed.</p> 
+                  
+  <div>
+            <span class="signature"><code>const Permissions(2)</code></span>
+          </div>
+        </dd>
+        <dt id="calendar" class="constant">
+          <span class="name ">calendar</span>
+          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
+                  </dt>
+        <dd>
+          <p>Android: Calendar iOS: Calendar (Events)</p> 
+                  
+  <div>
+            <span class="signature"><code>const Permissions(3)</code></span>
+          </div>
+        </dd>
+        <dt id="camera" class="constant">
+          <span class="name ">camera</span>
+          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
+                  </dt>
+        <dd>
+          <p>Android: Camera iOS: Photos (Camera Roll and Camera)</p> 
                   
   <div>
             <span class="signature"><code>const Permissions(4)</code></span>
           </div>
         </dd>
-        <dt id="Phone" class="constant">
-          <span class="name ">Phone</span>
+        <dt id="contacts" class="constant">
+          <span class="name ">contacts</span>
           <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
                   </dt>
         <dd>
-           
+          <p>Android: Contacts iOS: AddressBook</p> 
+                  
+  <div>
+            <span class="signature"><code>const Permissions(5)</code></span>
+          </div>
+        </dd>
+        <dt id="ignoreBatteryOptimizations" class="constant">
+          <span class="name ">ignoreBatteryOptimizations</span>
+          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
+                  </dt>
+        <dd>
+          <p>Android: Ignore Battery Optimizations</p> 
+                  
+  <div>
+            <span class="signature"><code>const Permissions(6)</code></span>
+          </div>
+        </dd>
+        <dt id="location" class="constant">
+          <span class="name ">location</span>
+          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
+                  </dt>
+        <dd>
+          <p>Android: Fine and Coarse Location iOS: CoreLocation (Always and WhenInUse)</p> 
                   
   <div>
             <span class="signature"><code>const Permissions(7)</code></span>
           </div>
         </dd>
-        <dt id="Sensors" class="constant">
-          <span class="name ">Sensors</span>
+        <dt id="locationAlways" class="constant">
+          <span class="name ">locationAlways</span>
           <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
                   </dt>
         <dd>
-           
+          <p>Android: When running on Android &lt; Q: Fine and Coarse Location
+When running on Android Q and above: Background Location Permission iOS: CoreLocation - Always</p> 
                   
   <div>
             <span class="signature"><code>const Permissions(8)</code></span>
           </div>
         </dd>
-        <dt id="SMS" class="constant">
-          <span class="name ">SMS</span>
+        <dt id="locationWhenInUse" class="constant">
+          <span class="name ">locationWhenInUse</span>
           <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
                   </dt>
         <dd>
-           
+          <p>Android: Fine and Coarse Location iOS: CoreLocation - WhenInUse</p> 
                   
   <div>
             <span class="signature"><code>const Permissions(9)</code></span>
           </div>
         </dd>
-        <dt id="State" class="constant">
-          <span class="name ">State</span>
+        <dt id="mediaLibrary" class="constant">
+          <span class="name ">mediaLibrary</span>
           <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
                   </dt>
         <dd>
-           
+          <p>Android: None iOS: MPMediaLibrary</p> 
+                  
+  <div>
+            <span class="signature"><code>const Permissions(10)</code></span>
+          </div>
+        </dd>
+        <dt id="microphone" class="constant">
+          <span class="name ">microphone</span>
+          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
+                  </dt>
+        <dd>
+          <p>Android: Microphone iOS: Microphone</p> 
                   
   <div>
             <span class="signature"><code>const Permissions(11)</code></span>
           </div>
         </dd>
-        <dt id="Storage" class="constant">
-          <span class="name ">Storage</span>
+        <dt id="notification" class="constant">
+          <span class="name ">notification</span>
           <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
                   </dt>
         <dd>
-           
+          <p>Android: Notification iOS: Notification</p> 
                   
   <div>
-            <span class="signature"><code>const Permissions(10)</code></span>
+            <span class="signature"><code>const Permissions(12)</code></span>
+          </div>
+        </dd>
+        <dt id="phone" class="constant">
+          <span class="name ">phone</span>
+          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
+                  </dt>
+        <dd>
+          <p>Android: Phone iOS: Nothing</p> 
+                  
+  <div>
+            <span class="signature"><code>const Permissions(13)</code></span>
+          </div>
+        </dd>
+        <dt id="photos" class="constant">
+          <span class="name ">photos</span>
+          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
+                  </dt>
+        <dd>
+          <p>Android: Nothing iOS: Photos iOS 14+ read &amp; write access level</p> 
+                  
+  <div>
+            <span class="signature"><code>const Permissions(14)</code></span>
+          </div>
+        </dd>
+        <dt id="photosAddOnly" class="constant">
+          <span class="name ">photosAddOnly</span>
+          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
+                  </dt>
+        <dd>
+          <p>Android: Nothing iOS: Photos iOS 14+ read &amp; write access level</p> 
+                  
+  <div>
+            <span class="signature"><code>const Permissions(15)</code></span>
+          </div>
+        </dd>
+        <dt id="reminders" class="constant">
+          <span class="name ">reminders</span>
+          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
+                  </dt>
+        <dd>
+          <p>Android: Nothing iOS: Reminders</p> 
+                  
+  <div>
+            <span class="signature"><code>const Permissions(16)</code></span>
+          </div>
+        </dd>
+        <dt id="sensors" class="constant">
+          <span class="name ">sensors</span>
+          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
+                  </dt>
+        <dd>
+          <p>Android: Nothing iOS: Reminders</p> 
+                  
+  <div>
+            <span class="signature"><code>const Permissions(17)</code></span>
+          </div>
+        </dd>
+        <dt id="sms" class="constant">
+          <span class="name ">sms</span>
+          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
+                  </dt>
+        <dd>
+          <p>Android: Sms iOS: Nothing</p> 
+                  
+  <div>
+            <span class="signature"><code>const Permissions(18)</code></span>
+          </div>
+        </dd>
+        <dt id="speech" class="constant">
+          <span class="name ">speech</span>
+          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
+                  </dt>
+        <dd>
+          <p>Android: Microphone iOS: Speech</p> 
+                  
+  <div>
+            <span class="signature"><code>const Permissions(19)</code></span>
+          </div>
+        </dd>
+        <dt id="storage" class="constant">
+          <span class="name ">storage</span>
+          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
+                  </dt>
+        <dd>
+          <p>Android: External Storage iOS: Access to folders like Documents
+or Downloads. Implicitly granted.</p> 
+                  
+  <div>
+            <span class="signature"><code>const Permissions(20)</code></span>
           </div>
         </dd>
         <dt id="values" class="constant">
@@ -207,17 +325,6 @@
                   
   <div>
             <span class="signature"><code>const List&lt;<wbr><span class="type-parameter">Permissions</span>&gt;</code></span>
-          </div>
-        </dd>
-        <dt id="WhenInUse" class="constant">
-          <span class="name ">WhenInUse</span>
-          <span class="signature">&#8594; const <a href="../super_easy_permissions/Permissions-class.html">Permissions</a></span>
-                  </dt>
-        <dd>
-           
-                  
-  <div>
-            <span class="signature"><code>const Permissions(6)</code></span>
           </div>
         </dd>
       </dl>
@@ -302,19 +409,28 @@
 
 
     <li class="section-title"><a href="../super_easy_permissions/Permissions-class.html#constants">Constants</a></li>
-    <li>Calendar</li>
-    <li>Camera</li>
-    <li>Contacts</li>
-    <li>Internet</li>
-    <li>Location</li>
-    <li>Microphone</li>
-    <li>Phone</li>
-    <li>Sensors</li>
-    <li>SMS</li>
-    <li>State</li>
-    <li>Storage</li>
+    <li>accessMediaLocation</li>
+    <li>activityRecognition</li>
+    <li>bluetooth</li>
+    <li>calendar</li>
+    <li>camera</li>
+    <li>contacts</li>
+    <li>ignoreBatteryOptimizations</li>
+    <li>location</li>
+    <li>locationAlways</li>
+    <li>locationWhenInUse</li>
+    <li>mediaLibrary</li>
+    <li>microphone</li>
+    <li>notification</li>
+    <li>phone</li>
+    <li>photos</li>
+    <li>photosAddOnly</li>
+    <li>reminders</li>
+    <li>sensors</li>
+    <li>sms</li>
+    <li>speech</li>
+    <li>storage</li>
     <li>values</li>
-    <li>WhenInUse</li>
 
     <li class="section-title">
       <a href="../super_easy_permissions/Permissions-class.html#instance-properties">Properties</a>
@@ -340,7 +456,7 @@
 <footer>
   <span class="no-break">
     super_easy_permissions
-      0.0.3
+      0.0.4
   </span>
 
 </footer>

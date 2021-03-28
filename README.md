@@ -70,7 +70,7 @@ Finally, use the package
 #### Check if permission is granted
 
 ```dart
-bool result = await SuperEasyPermissions.isGranted(Permissions.Camera);
+bool result = await SuperEasyPermissions.isGranted(Permissions.camera);
 if (result) {
   // Permission is granted, do something
 }
@@ -79,7 +79,7 @@ if (result) {
 #### Ask for permission
 
 ```dart
-bool result = await SuperEasyPermissions.askPermission(Permissions.Camera);
+bool result = await SuperEasyPermissions.askPermission(Permissions.camera);
 if (result) {
   // Permission is granted, do something
 } else {
@@ -90,7 +90,7 @@ if (result) {
 #### Check if permission is denied
 
 ```dart
-bool result = await SuperEasyPermissions.isDenied(Permissions.Camera);
+bool result = await SuperEasyPermissions.isDenied(Permissions.camera);
 if (result) {
   // Permission is denied, do something
 }
@@ -99,7 +99,7 @@ if (result) {
 #### Check if permission is permanently denied
 
 ```dart
-int result = await SuperEasyPermissions.isPermanentlyDenied(Permissions.Camera);
+int result = await SuperEasyPermissions.isPermanentlyDenied(Permissions.camera);
 if (result) {
   // Permission is permanently denied, do something
 }
@@ -108,18 +108,27 @@ if (result) {
 ## Permissions Reference
 
 ```dart
-Permissions.Internet    // For iOS only
-Permissions.Calendar
-Permissions.Camera
-Permissions.Contacts
-Permissions.Microphone
-Permissions.Location
-Permissions.WhenInUse   // For iOS only
-Permissions.Phone       // For Android only
-Permissions.Sensors     // For Android only
-Permissions.SMS         // For Android only
-Permissions.Storage     // For Android only
-Permissions.State       // For Android only
+  Permissions.accessMediaLocation        // for android only
+  Permissions.activityRecognition        // for android only
+  Permissions.bluetooth
+  Permissions.calendar
+  Permissions.camera
+  Permissions.contacts
+  Permissions.ignoreBatteryOptimizations // for ios only
+  Permissions.location
+  Permissions.locationAlways
+  Permissions.locationWhenInUse
+  Permissions.mediaLibrary               // for ios only
+  Permissions.microphone
+  Permissions.notification
+  Permissions.phone                      // for android only
+  Permissions.photos                     // for ios only
+  Permissions.photosAddOnly              // for ios only
+  Permissions.reminders                  // for ios only
+  Permissions.sensors
+  Permissions.sms                         // for android only
+  Permissions.speech
+  Permissions.storage
 ```
 
 ## Issues

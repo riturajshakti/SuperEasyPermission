@@ -109,18 +109,16 @@ If the permission is permanently denied, This will open the settings</p>
   var permissionName = _getEquivalentPermissionName(permission);
   if (result == 0) {
     &#47;&#47; Code for deny (false)
-    await Permission.requestPermissions([permissionName]);
-    result = await getPermissionResult(permission);
-    return result == 1;
+    var status = await permissionName.request();
+    return status == PermissionStatus.granted ||
+        status == PermissionStatus.limited;
   } else if (result == -1) {
     &#47;&#47; Code for notAgain (false)
-    await Permission.requestPermissions([permissionName]);
-    result = await getPermissionResult(permission);
-    if (result == 1) return true;
-    await Permission.openSettings();
+    await openAppSettings();
     result = await getPermissionResult(permission);
     return result == 1;
   } else {
+    &#47;&#47; already granted
     return true;
   }
 }</code></pre>
@@ -136,7 +134,7 @@ If the permission is permanently denied, This will open the settings</p>
 <footer>
   <span class="no-break">
     super_easy_permissions
-      0.0.3
+      0.0.4
   </span>
 
 </footer>
