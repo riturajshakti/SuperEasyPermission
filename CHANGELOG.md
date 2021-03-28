@@ -1,3 +1,7 @@
+## 0.0.3
+
+- Modified docs
+
 ## 0.0.2
 
 - Modified the description
