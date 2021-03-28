@@ -2,7 +2,7 @@ name: super_easy_permissions
 description: A flutter plugin for handling permissions on Android and iOS.
 version: 0.0.1
 author: Rituraj Shakti
-homepage:
+homepage: https://github.com/riturajshakti
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
