@@ -96,15 +96,6 @@ if (result) {
 }
 ```
 
-#### Check if permission is permanently denied
-
-```dart
-int result = await SuperEasyPermissions.isPermanentlyDenied(Permissions.camera);
-if (result) {
-  // Permission is permanently denied, do something
-}
-```
-
 ## Permissions Reference
 
 ```dart
@@ -126,7 +117,7 @@ if (result) {
   Permissions.photosAddOnly              // for ios only
   Permissions.reminders                  // for ios only
   Permissions.sensors
-  Permissions.sms                         // for android only
+  Permissions.sms                        // for android only
   Permissions.speech
   Permissions.storage
 ```
