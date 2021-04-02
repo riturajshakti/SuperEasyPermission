@@ -96,13 +96,13 @@ For a list of all permissions, visit <a href="https://developer.apple.com/librar
 <h3 id="step-4">Step 4</h3>
 <p>Finally, use the package</p>
 <h4 id="check-if-permission-is-granted">Check if permission is granted</h4>
-<pre class="language-dart"><code class="language-dart">bool result = await SuperEasyPermissions.isGranted(Permissions.Camera);
+<pre class="language-dart"><code class="language-dart">bool result = await SuperEasyPermissions.isGranted(Permissions.camera);
 if (result) {
   // Permission is granted, do something
 }
 </code></pre>
 <h4 id="ask-for-permission">Ask for permission</h4>
-<pre class="language-dart"><code class="language-dart">bool result = await SuperEasyPermissions.askPermission(Permissions.Camera);
+<pre class="language-dart"><code class="language-dart">bool result = await SuperEasyPermissions.askPermission(Permissions.camera);
 if (result) {
   // Permission is granted, do something
 } else {
@@ -110,30 +110,33 @@ if (result) {
 }
 </code></pre>
 <h4 id="check-if-permission-is-denied">Check if permission is denied</h4>
-<pre class="language-dart"><code class="language-dart">bool result = await SuperEasyPermissions.isDenied(Permissions.Camera);
+<pre class="language-dart"><code class="language-dart">bool result = await SuperEasyPermissions.isDenied(Permissions.camera);
 if (result) {
   // Permission is denied, do something
 }
 </code></pre>
-<h4 id="check-if-permission-is-permanently-denied">Check if permission is permanently denied</h4>
-<pre class="language-dart"><code class="language-dart">int result = await SuperEasyPermissions.isPermanentlyDenied(Permissions.Camera);
-if (result) {
-  // Permission is permanently denied, do something
-}
-</code></pre>
 <h2 id="permissions-reference">Permissions Reference</h2>
-<pre class="language-dart"><code class="language-dart">Permissions.Internet    // For iOS only
-Permissions.Calendar
-Permissions.Camera
-Permissions.Contacts
-Permissions.Microphone
-Permissions.Location
-Permissions.WhenInUse   // For iOS only
-Permissions.Phone       // For Android only
-Permissions.Sensors     // For Android only
-Permissions.SMS         // For Android only
-Permissions.Storage     // For Android only
-Permissions.State       // For Android only
+<pre class="language-dart"><code class="language-dart">  Permissions.accessMediaLocation        // for android only
+  Permissions.activityRecognition        // for android only
+  Permissions.bluetooth
+  Permissions.calendar
+  Permissions.camera
+  Permissions.contacts
+  Permissions.ignoreBatteryOptimizations // for ios only
+  Permissions.location
+  Permissions.locationAlways
+  Permissions.locationWhenInUse
+  Permissions.mediaLibrary               // for ios only
+  Permissions.microphone
+  Permissions.notification
+  Permissions.phone                      // for android only
+  Permissions.photos                     // for ios only
+  Permissions.photosAddOnly              // for ios only
+  Permissions.reminders                  // for ios only
+  Permissions.sensors
+  Permissions.sms                        // for android only
+  Permissions.speech
+  Permissions.storage
 </code></pre>
 <h2 id="issues">Issues</h2>
 <p>Don't hesitate to email any issues or feature at <a href="mailto:riturajshakti@gmail.com">riturajshakti@gmail.com</a>.</p>
@@ -166,7 +169,7 @@ Your donation seriously motivates me to develop more useful packages like this.<
 <footer>
   <span class="no-break">
     super_easy_permissions
-      0.0.4
+      0.0.6
   </span>
 
 </footer>

@@ -114,7 +114,7 @@ class SuperEasyPermissions {
     return (await getPermissionResult(permission)) != 1;
   }
 
-  /// returns true if permission is granted, otherwise return false
+  /// returns true if permission is permanently denied, otherwise return false
   static Future<bool> isPermanentlyDenied(Permissions permission) async {
     return (await getPermissionResult(permission)) == -1;
   }
