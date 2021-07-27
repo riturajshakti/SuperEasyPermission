@@ -1,9 +1,8 @@
 # super_easy_permissions
 
-A flutter plugin for handling permissions on Android/iOS in a very simple way.
+A flutter plugin for handling permissions on Android/iOS in a super simple way.
 
-On most operating systems, permissions aren't just granted to apps at install time. Rather, developers have to ask the user for permissions while the app is running. This plugin provides a cross-platform (iOS, Android) API to request permissions and check their status.
-You can also open the device's app settings so users can grant a permission.
+Please support me via [Donation](https://paypal.me/riturajshakti). Your donation seriously motivates me to build many useful plugins like this.
 
 ## How to use
 
@@ -121,6 +120,15 @@ if (result) {
   Permissions.speech
   Permissions.storage
 ```
+
+## Other useful packages
+
+- [super_easy_in_app_purchase](https://pub.dev/packages/super_easy_in_app_purchase)
+
+## References
+
+- [API docs of this package](https://pub.dev/documentation/super_easy_permissions/latest/super_easy_permissions/SuperEasyPermissions-class.html)
+- [Complete example on github](https://github.com/riturajshakti/SuperEasyPermission/tree/main/example)
 
 ## Issues
 

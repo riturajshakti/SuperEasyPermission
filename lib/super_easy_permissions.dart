@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 /// Permission constants for android and ios
@@ -75,14 +74,6 @@ enum Permissions {
 }
 
 class SuperEasyPermissions {
-  static const MethodChannel _channel =
-      const MethodChannel('super_easy_permissions');
-
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
-  }
-
   /// Asks(request) for permission and return true if granted, otherwise returns false.
   /// If the permission is permanently denied, This will open the settings
   static Future<bool> askPermission(Permissions permission) async {
@@ -90,7 +81,7 @@ class SuperEasyPermissions {
     var permissionName = _getEquivalentPermissionName(permission);
     if (result == 0) {
       // Code for deny (false)
-      var status = await permissionName.request();
+      var status = await permissionName!.request();
       return status == PermissionStatus.granted ||
           status == PermissionStatus.limited;
     } else if (result == -1) {
@@ -123,7 +114,7 @@ class SuperEasyPermissions {
   /// return 0 if denied,
   /// return -1 if user set to don't ask again
   static Future<int> getPermissionResult(Permissions permission) async {
-    var permissionName = _getEquivalentPermissionName(permission);
+    var permissionName = _getEquivalentPermissionName(permission)!;
     var permissionStatus = await permissionName.status;
     int result;
     if (permissionStatus == PermissionStatus.granted) {
@@ -138,7 +129,7 @@ class SuperEasyPermissions {
     return result;
   }
 
-  static Permission _getEquivalentPermissionName(Permissions permissionName) {
+  static Permission? _getEquivalentPermissionName(Permissions permissionName) {
     var map = <Permissions, Permission>{
       Permissions.accessMediaLocation: Permission.accessMediaLocation,
       Permissions.activityRecognition: Permission.activityRecognition,

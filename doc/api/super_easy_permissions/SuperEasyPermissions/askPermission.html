@@ -73,8 +73,6 @@
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
-    <li class="section-title"><a href="../../super_easy_permissions/SuperEasyPermissions-class.html#static-properties">Static properties</a></li>
-    <li><a href="../../super_easy_permissions/SuperEasyPermissions/platformVersion.html">platformVersion</a></li>
 
     <li class="section-title"><a href="../../super_easy_permissions/SuperEasyPermissions-class.html#static-methods">Static methods</a></li>
     <li><a href="../../super_easy_permissions/SuperEasyPermissions/askPermission.html">askPermission</a></li>
@@ -88,7 +86,8 @@
   </div><!--/.sidebar-offcanvas-->
 
   <div id="dartdoc-main-content" class="main-content">
-      <div><h1><span class="kind-method">askPermission</span> method </h1></div>
+      <div><h1><span class="kind-method">askPermission</span> method     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
 
     <section class="multi-line-signature">
       <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
@@ -109,9 +108,8 @@ If the permission is permanently denied, This will open the settings</p>
   var permissionName = _getEquivalentPermissionName(permission);
   if (result == 0) {
     &#47;&#47; Code for deny (false)
-    var status = await permissionName.request();
-    return status == PermissionStatus.granted ||
-        status == PermissionStatus.limited;
+    var status = await permissionName!.request();
+    return status == PermissionStatus.granted || status == PermissionStatus.limited;
   } else if (result == -1) {
     &#47;&#47; Code for notAgain (false)
     await openAppSettings();
@@ -134,7 +132,7 @@ If the permission is permanently denied, This will open the settings</p>
 <footer>
   <span class="no-break">
     super_easy_permissions
-      0.0.6
+      0.1.0
   </span>
 
 </footer>

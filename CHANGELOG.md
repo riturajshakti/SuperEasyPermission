@@ -1,3 +1,12 @@
+## 0.1.1
+
+- Minor changes
+
+## 0.1.0
+
+- Updated to null safety
+- Modified docs
+
 ## 0.0.6
 
 - Modified some docs
